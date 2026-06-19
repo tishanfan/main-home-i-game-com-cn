@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tishanfan.github.io/main-home-i-game-com-cn/sitemap.xml
