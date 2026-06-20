@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>球盟会 · 稳定入口与页面说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f7f8fc;
+      color: #1f2a3a;
+      line-height: 1.65;
+    }
+
+    /* 深色头图 · hero */
+    .hero {
+      background: linear-gradient(145deg, #0d111c 0%, #1a2335 100%);
+      color: #eef1fa;
+      padding: 5rem 1.8rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -18px;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: #f7f8fc;
+      border-radius: 50% 50% 0 0;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      font-weight: 300;
+      opacity: 0.8;
+      max-width: 620px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.07);
+      padding: 0.25rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(2px);
+      color: #c9d4f0;
+    }
+
+    /* 浅色正文区 · 内容卡片组 */
+    .wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.8rem;
+    }
+
+    .section {
+      padding: 2.6rem 0 2rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 450;
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 2px solid #dce2ee;
+      color: #1b2539;
+      letter-spacing: 0.3px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+      margin-top: 0.6rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 1.8rem 1.6rem 2rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02), 0 1px 4px rgba(0, 18, 44, 0.04);
+      transition: transform 0.15s ease, box-shadow 0.2s;
+      border: 1px solid #f0f2f9;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -8px rgba(15, 25, 55, 0.08);
+      border-color: #d0d9ec;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.65rem;
+      color: #1b2d4f;
+    }
+
+    .card p {
+      font-size: 0.96rem;
+      opacity: 0.9;
+      color: #2e3b4e;
+    }
+
+    /* 说明区 - 叙述感段落 */
+    .desc-block {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2.2rem;
+      margin: 0.8rem 0 1.6rem;
+      border: 1px solid #eaeef6;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    .desc-block p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+
+    .desc-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .accent-link {
+      color: #1a5b9f;
+      font-weight: 470;
+      text-decoration: none;
+      border-bottom: 1.5px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .accent-link:hover {
+      border-bottom-color: #1a5b9f;
+      color: #103c6b;
+    }
+
+    /* FAQ 摘要 */
+    .faq-preview {
+      background: #f1f4fd;
+      border-radius: 22px;
+      padding: 2rem 2rem 1.8rem;
+      margin: 1rem 0 1.2rem;
+    }
+
+    .faq-preview h3 {
+      font-size: 1.2rem;
+      font-weight: 480;
+      margin-bottom: 1.4rem;
+      color: #162642;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .faq-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .faq-q {
+      font-weight: 480;
+      color: #1f3255;
+      font-size: 1rem;
+    }
+
+    .faq-a {
+      color: #3b4b66;
+      font-size: 0.92rem;
+      margin-left: 0.8rem;
+      padding-left: 0.6rem;
+      border-left: 3px solid #bac8e5;
+    }
+
+    .faq-more {
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      text-align: right;
+    }
+
+    /* footer 底部链接 */
+    .footer-links {
+      border-top: 1px solid #dde3ef;
+      padding: 2.2rem 0 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2.5rem;
+      align-items: baseline;
+    }
+
+    .footer-links a,
+    .footer-links span {
+      font-size: 0.9rem;
+      color: #2b3d5e;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .footer-links a:hover {
+      border-bottom-color: #2b3d5e;
+    }
+
+    .footer-links .foot-note {
+      color: #6b7b96;
+      margin-left: auto;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero .sub {
+        font-size: 0.95rem;
+      }
+      .wrapper {
+        padding: 0 1.2rem;
+      }
+      .desc-block {
+        padding: 1.5rem 1.2rem;
+      }
+      .faq-preview {
+        padding: 1.6rem 1.2rem;
+      }
+      .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+      .footer-links .foot-note {
+        margin-left: 0;
+      }
+    }
+
+    /* 小点缀 */
+    .badge-light {
+      background: #eaeefc;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      color: #1b3b65;
+      font-weight: 420;
+    }
+
+    hr.soft {
+      border: 0;
+      border-top: 1px solid #e4e9f5;
+      margin: 0.4rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>球盟会</h1>
+    <p class="sub">一个面向中文用户的稳定入口，页面内容与功能说明清晰可查。</p>
+    <span class="tagline">· 持续维护 · 入口可及 ·</span>
+  </header>
+
+  <main class="wrapper">
+
+    <!-- 优势区（卡片） -->
+    <section class="section">
+      <div class="section-title">三个特点</div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>稳定的访问方式</h3>
+          <p>域名长期维护，入口地址保持可用。无论网络环境如何变化，用户都能通过固定链接找到对应服务。</p>
+        </div>
+        <div class="card">
+          <h3>内容结构清晰</h3>
+          <p>页面以说明和导航为主，不堆砌无效信息。每个区域都围绕功能或介绍展开，方便快速理解。</p>
+        </div>
+        <div class="card">
+          <h3>轻量且适应性强</h3>
+          <p>页面设计兼顾移动端与桌面端，加载轻快。配色克制，减少视觉干扰，突出文字与链接本身。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 说明区 + 自然嵌入链接 -->
+    <section class="section">
+      <div class="section-title">关于页面与入口</div>
+      <div class="desc-block">
+        <p>
+          这个页面作为主要入口，提供关于平台的基础介绍与功能索引。如果你正在寻找一个长期可用的访问地址，可以直接使用 
+          <a href="https://official-qmh.com" class="accent-link">球盟会</a> 
+          作为起点。我们保持页面内容的定期更新，避免出现断连或信息陈旧的情况。
+        </p>
+        <p>
+          从导航到信息呈现，每个细节都经过斟酌。没有冗余的跳转，也不设置干扰性弹窗。你可以把这一页看作一份简明的使用说明——它不夸大，只陈述现有结构和用途。
+        </p>
+        <p>
+          当然，如果你对某些功能或内容有疑问，也可以参考下方的常见问题摘要，或者直接通过对应链接了解更具体的信息。
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section class="section">
+      <div class="section-title">常见问题 · 摘要</div>
+      <div class="faq-preview">
+        <h3>❓ 关于入口与使用</h3>
+        <div class="faq-item">
+          <span class="faq-q">访问地址是否会变化？</span>
+          <span class="faq-a">目前主要域名长期有效，如遇调整会通过页面公告说明。建议将 <a href="https://official-qmh.com" class="accent-link">球盟会</a> 加入书签以便随时查看。</span>
+        </div>
+        <div class="faq-item">
+          <span class="faq-q">页面内容多久更新一次？</span>
+          <span class="faq-a">根据功能迭代与信息变动，通常每两周至一个月做一次内容审核与调整，确保描述与实际一致。</span>
+        </div>
+        <div class="faq-item">
+          <span class="faq-q">是否支持移动设备浏览？</span>
+          <span class="faq-a">页面采用响应式设计，在手机与平板设备上均可正常阅读、操作，无需额外缩放。</span>
+        </div>
+        <div class="faq-more">—— 更多问题可直接参考站内指引。</div>
+      </div>
+    </section>
+
+    <!-- 底部链接区 -->
+    <footer class="footer-links">
+      <a href="https://official-qmh.com">球盟会</a>
+      <a href="#about">关于</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">联系方式</a>
+      <span class="badge-light">stable entry</span>
+      <span class="foot-note">页面说明 · 2025</span>
+    </footer>
+
+  </main>
+
+  <!-- 一个非常低调的种子标记，仅用于变化，不展示 -->
+  <!-- 创作种子: 7da7a4aa45de154b (仅供内部变化参照) -->
+</body>
+</html>
